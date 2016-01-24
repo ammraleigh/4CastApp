@@ -76,7 +76,11 @@ for(i in 1:n){
 
 unigram <- subset(unigram,!unigram$wUnigram=="") 
 unigram <- subset(unigram,!is.na(unigram$wUnigram)) 
+
+#Check that each unigram is a valid dictionary entry
+
 unigram <- inner_join(unigram, enDictionary, by = "wUnigram")
+
 save(unigram, file= paste(RDataPath, "unigram.RData", sep = "" ))
 rm(unigram); gc()
 
@@ -101,6 +105,8 @@ for(i in 1:n){
 }
 bigram <- subset(bigram,!bigram$wBigram == "") 
 bigram <- subset(bigram,!is.na(bigram$wBigram))
+
+#Check each word in each bigram and make sure it is a valid dictionary entry
 
 bigram$wUnigramN <- sapply(bigram$wBigram, function(x) sub(x, pattern = "^[[:alpha:]]* ", replacement = ""))
 setkey(bigram, wUnigramN); setkey(enDictionary, wUnigram)
@@ -136,6 +142,8 @@ for(i in 1:n){
 }
 trigram <- subset(trigram,!trigram$wTrigram == "") 
 trigram <- subset(trigram,!is.na(trigram$wTrigram)) 
+
+#Check each word in each trigram and make sure it is a valid dictionary entry
 
 trigram$wBigram <- sapply(trigram$wTrigram, function(x) sub(x, pattern = "^[[:alpha:]]* ", replacement = ""))
 trigram$wUnigram <- sapply(trigram$wBigram, function(x) sub(x, pattern = " [[:alpha:]]*$", replacement = ""))
