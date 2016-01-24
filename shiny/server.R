@@ -1,6 +1,6 @@
 
 library(shiny)
-library(DT)
+#library(DT)
 library(tm)
 library(data.table)
 
@@ -15,38 +15,7 @@ print("done loading data")
 
 shinyServer(
   function(input,output, session) {
-    
-    output$ui <- renderUI({
-      if (is.null(input$input_type))
-        return()
-      
-      switch(input$input_type,
-             "text" = textInput("dynamic", "Dynamic",
-                                value = INITIAL_STR),
-             "numeric" =  numericInput("dynamic", "Dynamic",
-                                       value = 12),
-             "selectInput" = selectInput("dynamic", "Dynamic",
-                                         choices = c("Option 1" = "option1",
-                                                     "Option 2" = "option2"),
-                                         selected = "option2"
-             ),
-             "selectInput (multi)" = selectInput("dynamic", "Dynamic",
-                                                 choices = c("Option 1" = "option1",
-                                                             "Option 2" = "option2"),
-                                                 selected = c("option1", "option2"),
-                                                 multiple = TRUE
-             )
-      )
-    })
-    
-    output$input_type_text <- renderText({
-      input$input_type
-    })
-    
-    output$dynamic_value <- renderPrint({
-      str(input$dynamic)
-    })
-    
+
     #dynamic buttons -> Update the button labels with the predications
     output$w1 <- renderUI({
       if ({length(predictions())} < 1) {return()}

@@ -1,8 +1,8 @@
 name: shiny
 account: dataprod
 server: shinyapps.io
-bundleId: 356838
+bundleId: 357062
 url: https://dataprod.shinyapps.io/Shiny/
-when: 1453644627.25171
+when: 1453655946.5195
 asMultiple: FALSE
 asStatic: FALSE

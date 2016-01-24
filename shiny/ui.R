@@ -21,15 +21,14 @@ shinyUI(
                                     machine learning, and data mining.'),
                                  h4('Get started with 4Cast'),
                                  tags$ol(
-                                   tags$li("Enter the number of word predictions you want."),
-                                   textInput("NoOfWords", "", "5"),
-                                   tags$li("Click on \'the demo\' above."), 
-                                   tags$li("And just start typing.") 
+                                   tags$li("Click on \'the demo\' in the menu above."), 
+                                   tags$li("Select the number of word predictions you want."),
+                                   tags$li("And start typing.") 
                                  )
                           ),
                           column(3,
-                                 tags$img(width = "937px", height = "318px", src = "wordcloud.png"),
-                                 tags$img(width = "937px", height = "318px", src = "model.png")
+                                 tags$img(width = "763px", height = "599px", src = "diagram.png")
+                                 #tags$img(width = "937px", height = "318px", src = "model.png")
                           )
                         )
                       )
@@ -39,10 +38,12 @@ shinyUI(
                       mainPanel(
                         br(),
                         p('Instructions:'),
-                        p('1 - Start typing in the input box below.'),
-                        p('2 - Predictions (max = 5) will appear on bottons below the text box ', tags$em("after you enter a space.")),
-                        p('3 - Continue typing or click on a predicted word button.'),
-                        p('4 - If you click on a word prediction button the word is added to your phrase and the next prediction is supplied.'),
+                        p('1 - Enter the number of word predictions (max = 4).'),
+                        textInput("NoOfWords", "", "4"),
+                        p('2 - Start typing in the input box below.'),
+                        p('3 - Predictions (max = 4) will appear on bottons below the text box ', tags$em("after you enter a space.")),
+                        p('4 - Continue typing or click on a predicted word button.'),
+                        p('5 - If you click on a word prediction button the word is added to your phrase and the next prediction is supplied.'),
                         br(),
                         textInput("Phrase","Enter your phrase - ", "", width = 1000),
                         p(tags$b("Word Predictions - ")),
