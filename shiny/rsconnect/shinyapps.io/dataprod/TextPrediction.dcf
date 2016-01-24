@@ -1,0 +1,8 @@
+name: TextPrediction
+account: dataprod
+server: shinyapps.io
+bundleId: 337410
+url: https://dataprod.shinyapps.io/TextPrediction
+when: 1450874249.41845
+asMultiple: FALSE
+asStatic: FALSE

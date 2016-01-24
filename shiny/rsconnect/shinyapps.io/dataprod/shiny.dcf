@@ -1,0 +1,8 @@
+name: shiny
+account: dataprod
+server: shinyapps.io
+bundleId: 356838
+url: https://dataprod.shinyapps.io/Shiny/
+when: 1453644627.25171
+asMultiple: FALSE
+asStatic: FALSE
